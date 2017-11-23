@@ -66,7 +66,7 @@ object UserField {
   }
 
   private implicit val encodeCNil: ObjectEncoder[CNil] =
-    (a: CNil) => sys.error("Cannot encode CNil")
+    (a: CNil) => throw new IllegalArgumentException("Cannot encode CNil")
 
   private implicit def cconsJsonWrites[Key <: Symbol, Head <: UserField, Tail <: Coproduct](
                                                                                              implicit key: Witness.Aux[Key],
