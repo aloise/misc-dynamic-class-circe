@@ -65,6 +65,7 @@ object UserField {
     gen.to(a).asJsonObject(cconsJsonWrites)
   }
 
+  // this exception would not appear in practice but it's required to summon an implicit
   private implicit val encodeCNil: ObjectEncoder[CNil] =
     (a: CNil) => throw new IllegalArgumentException("Cannot encode CNil")
 
