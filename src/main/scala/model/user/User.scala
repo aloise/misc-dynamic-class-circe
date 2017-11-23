@@ -44,10 +44,11 @@ object UserField {
   protected[user] final val typeNameField = "$type"
   protected[user] final val dataNameField = "data"
 
-  private val gen = LabelledGeneric[UserField]
+  // TODO - try to make it as implicit parameter of circeEncoder
+  private val userLabelledGeneric = LabelledGeneric[UserField]
 
   implicit def circeEncoder: ObjectEncoder[UserField] = (a: UserField) => {
-    gen.to(a).asJsonObject(cconsJsonWrites)
+    userLabelledGeneric.to(a).asJsonObject
   }
 
   // this exception would not appear in practice but it's required to summon an implicit
@@ -87,8 +88,7 @@ case class User(fields: UserField*) extends Entity[UserField](fields: _*) {
 
 object User {
 
-  implicit val gen = LabelledGeneric[UserField]
-
+  // TODO - add an implicit parameter for a JsonNaming - from case class name to json string key
   implicit def userCirceEncoder: Encoder[User] = (a: User) => {
     val pairs =
       a.underlying.flatMap { case (_, f) =>
