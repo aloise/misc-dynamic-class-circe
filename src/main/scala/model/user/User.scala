@@ -1,9 +1,5 @@
 package model.user
 
-abstract class FieldName {
-  type V
-}
-
 
 import io.circe._
 import io.circe.syntax._
@@ -13,6 +9,10 @@ import shapeless.labelled.FieldType
 
 import scala.reflect.ClassTag
 
+
+abstract class FieldName {
+  type V
+}
 
 trait FieldData extends FieldName {
   def data: V
@@ -30,27 +30,12 @@ abstract class Entity[F <: FieldData](initWithFields: F*)(implicit labelledGener
 
 sealed trait UserField extends FieldData
 
-case class Username(data: String) extends UserField {
-  type V = String
-}
-
-case class Password(data: String) extends UserField {
-  type V = String
-}
-
-case class UserId(data: Int) extends UserField {
-  type V = Int
-}
-
-case class UserIsAlive(data: Boolean) extends UserField {
-  type V = Boolean
-}
-
+case class Username(data: String) extends UserField { type V = String }
+case class Password(data: String) extends UserField { type V = String }
+case class UserId(data: Int) extends UserField { type V = Int }
+case class UserIsAlive(data: Boolean) extends UserField { type V = Boolean }
 case class UserAddressInfo(city: String, state: String)
-
-case class UserAddress(data: UserAddressInfo) extends UserField {
-  type V = UserAddressInfo
-}
+case class UserAddress(data: UserAddressInfo) extends UserField { type V = UserAddressInfo}
 
 object UserField {
 
