@@ -19,5 +19,6 @@ object Main extends App {
 
   println( user2.asJson )
 
+  println(user2.get[UserIsAlive])
 
 }

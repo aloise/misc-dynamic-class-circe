@@ -25,6 +25,9 @@ abstract class Entity[F <: FieldData](initWithFields: F*)(implicit labelledGener
   protected val underlying: UnderlyingMap = initWithFields.foldLeft[UnderlyingMap](Map.empty) { case (map, f) =>
     map.updated(f.getClass.asInstanceOf[Class[F]], f)
   }
+
+  def get[X<:F : ClassTag]: Option[X#V] =
+    underlying.get( implicitly[ClassTag[X]].runtimeClass.asInstanceOf[Class[F]] ).map(_.data.asInstanceOf[X#V])
 }
 
 
@@ -82,7 +85,6 @@ case class User(fields: UserField*) extends Entity[UserField](fields: _*) {
 
   def delete[T <: UserField]()(implicit classTag: ClassTag[T]): User =
     new User(fields.filterNot(f => f.getClass == classTag.runtimeClass): _*)
-
 
 }
 
