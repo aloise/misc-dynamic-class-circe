@@ -1,6 +1,6 @@
 import model.user._
-
 import io.circe.syntax._
+import model.codecs.RefinedTests
 
 object Main extends App {
 
@@ -15,10 +15,12 @@ object Main extends App {
 
   val user2 = user.delete[UserId]
 
-  println( user.asJson )
+  // println( user.asJson )
 
-  println( user2.asJson )
+  // println( user2.asJson )
 
-  println(user2.get[UserIsAlive])
+  // println(user2.get[UserIsAlive])
+
+  RefinedTests.test()
 
 }
