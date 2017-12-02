@@ -4,6 +4,10 @@ val circeVersion = "0.8.0"
 val refinedVersion = "0.8.4"
 //val extruderVersion = "0.6.3"
 
+scalacOptions ++= Seq(
+  "-Xlog-implicits"
+)
+
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
