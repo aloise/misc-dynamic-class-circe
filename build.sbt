@@ -1,8 +1,7 @@
 name := "ModifiableRecordTest"
 
-val circeVersion = "0.8.0"
-val refinedVersion = "0.8.4"
-//val extruderVersion = "0.6.3"
+val circeVersion = "0.9.3"
+val refinedVersion = "0.9.2"
 
 scalacOptions ++= Seq(
   "-Xlog-implicits"
@@ -17,7 +16,8 @@ libraryDependencies ++= Seq(
   "eu.timepit" %% "refined" % refinedVersion,
   "eu.timepit" %% "refined-cats" % refinedVersion, // optional
   "eu.timepit" %% "refined-eval" % refinedVersion,
-  "eu.timepit" %% "singleton-ops" % "0.2.1"
+  "eu.timepit" %% "singleton-ops" % "0.2.1",
+  "com.slamdata" %% "matryoshka-core" % "0.21.3"
 //  "extruder" %% "extruder" % extruderVersion,
 //  "extruder" %% "extruder-refined" % extruderVersion
 
