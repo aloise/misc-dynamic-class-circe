@@ -1,5 +1,7 @@
 name := "ModifiableRecordTest"
 
+addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.7")
+
 val circeVersion = "0.9.3"
 val refinedVersion = "0.9.2"
 
