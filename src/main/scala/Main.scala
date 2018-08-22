@@ -1,6 +1,7 @@
 import model.user._
 import io.circe.syntax._
 import model.codecs.RefinedTests
+import model.recoursive.Exp
 
 object Main extends App {
 
@@ -21,6 +22,13 @@ object Main extends App {
 
   // println(user2.get[UserIsAlive])
 
-  RefinedTests.test()
+  // RefinedTests.test()
+
+
+  {
+    import matryoshka.implicits._
+
+    println(Exp.exp1.cata(Exp.evaluate))
+  }
 
 }

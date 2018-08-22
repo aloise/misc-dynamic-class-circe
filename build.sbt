@@ -6,7 +6,7 @@ val circeVersion = "0.9.3"
 val refinedVersion = "0.9.2"
 
 scalacOptions ++= Seq(
-  "-Xlog-implicits"
+  // "-Xlog-implicits"
 )
 
 libraryDependencies ++= Seq(

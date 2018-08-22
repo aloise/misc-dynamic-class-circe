@@ -24,5 +24,5 @@ object User {
   import io.circe.generic.auto._
   import Record._
 
-  val json:Json = model.asJson
+  // val json:Json = model.asJson
 }
