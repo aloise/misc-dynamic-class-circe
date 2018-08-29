@@ -1,10 +1,10 @@
-package model.recoursive
+package model.fixed
 
 import io.circe.Json
 import matryoshka.Algebra
 import matryoshka.data.Fix
 import matryoshka.implicits._
-import model.recoursive
+import model.fixed
 import scalaz.Functor
 
 sealed trait Exp[A]

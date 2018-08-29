@@ -1,4 +1,4 @@
-package model.recoursive
+package model.fixed
 
 import matryoshka.data.Fix
 import matryoshka.implicits._

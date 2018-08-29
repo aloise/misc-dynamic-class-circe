@@ -1,4 +1,4 @@
-package model.recoursive
+package model.fixed
 
 import io.circe.{Encoder, Json}
 

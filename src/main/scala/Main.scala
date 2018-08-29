@@ -1,7 +1,7 @@
 import model.user._
 import io.circe.syntax._
 import model.codecs.RefinedTests
-import model.recoursive.Exp
+import model.fixed.Exp
 
 object Main extends App {
 
@@ -30,7 +30,7 @@ object Main extends App {
 
     println(Exp.exp1.cata(Exp.evaluate))
 
-    println(model.recoursive.User.json)
+    println(model.fixed.User.json)
   }
 
 }

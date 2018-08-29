@@ -1,8 +1,8 @@
-package model.recoursive
+package model.fixed
 
 
-import model.recoursive.Entity._
-import model.recoursive._
+import model.fixed.Entity._
+import model.fixed._
 import matryoshka._
 import matryoshka.implicits._
 import scalaz.Scalaz._
