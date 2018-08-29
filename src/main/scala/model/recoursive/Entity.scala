@@ -70,8 +70,8 @@ object Entity {
     implicit def toCirceEncoder:Encoder[Record] =
       (a: Record) => a.cata(algebraFieldJson)
 
-    implicit def toCirceDecoder:Decoder[Record] =
-      (a: HCursor) => ???
+    implicit def toCirceDecoder:Decoder[Record] = (c: HCursor) =>
+      c.as[Json].map( _.ana[Record](coalgebraFieldJson))
 
   }
 
