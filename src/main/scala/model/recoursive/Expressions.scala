@@ -1,5 +1,6 @@
 package model.recoursive
 
+import io.circe.Json
 import matryoshka.Algebra
 import matryoshka.data.Fix
 import matryoshka.implicits._

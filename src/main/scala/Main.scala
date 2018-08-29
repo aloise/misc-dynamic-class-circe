@@ -29,6 +29,8 @@ object Main extends App {
     import matryoshka.implicits._
 
     println(Exp.exp1.cata(Exp.evaluate))
+
+    println(model.recoursive.User.json)
   }
 
 }

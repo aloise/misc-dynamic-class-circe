@@ -8,14 +8,14 @@ import matryoshka.implicits._
 import scalaz.Scalaz._
 
 object User {
-  val model:Record = record[String](
-    intField("id"),
-    stringField("username"),
-    booleanField("isFunny"),
-    nestedRecord("features")(
-      booleanField("isBusy"),
-      intField("age"),
-      intField("weight")
+  val model:Record = record(
+    "id" -> intField(1),
+    "username" -> stringField("UUUUDD"),
+    "isFunny" -> booleanField(true),
+    "features" -> record(
+      "isBusy" -> booleanField(true),
+      "age" -> intField(22),
+      "weight" -> intField(95)
     )
   )
 
@@ -24,5 +24,6 @@ object User {
   import io.circe.generic.auto._
   import Record._
 
-  // val json:Json = model.asJson
+  val json:Json = model.asJson
+
 }
